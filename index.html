@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For ALHIBA ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4e50, #ff758c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    z-index: 10;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: glow 1.5s infinite alternate;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px 0;
+    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    transition: 0.5s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    background: white;
+    color: #ff4e50;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4e50;
+    color: white;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px white, 0 0 20px pink;
+    }
+    to {
+        text-shadow: 0 0 20px white, 0 0 40px red;
+    }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>ALHIBA ❤️</h1>
+
+    <img src="alhiba.jpg" alt="Alhiba">
+
+    <p>You are the most beautiful part of my life 💕</p>
+    <p>Will you be my Valentine? 💌</p>
+
+    <button onclick="yesClicked()">YES 💖</button>
+</div>
+
+<script>
+function yesClicked() {
+    document.querySelector(".container").innerHTML = `
+        <h1>She Said YES ❤️✨</h1>
+        <p>My heart is officially yours 💍💕</p>
+    `;
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
